@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>    
+    <title>Document</title>
+    <style>
+        body{
+        background: linear-gradient(to left,rgb(188, 221, 231),rgb(240, 245, 240))
+    }
+        .box{
+            position:absolute;
+            background-color:#eef3f3;
+            width:1400px;
+            left:12%;
+            margin-top: 20%;
+            border-radius: 10px;
+        }
+        #submit{
+          margin-top:30%;
+          margin-left:40%;
+        }
+        .button1{
+        background-image: linear-gradient(to right, #eef3f3 30%, rgb(188,221,231)  100%);
+            
+    }
+    #adde{
+      margin-top:30%;
+          margin-left:20%;
+       
+    }
+    </style>
+</head>
+<body>
+    <h1 class="text-center my-5">ACADEMIC QUALIFICATION</h1>
+    <div class="container">
+      <form  action="skills.html" id="education" method="post">
+      <div class="table box my-5">
+        <table class="table">
+          <thead><tr>
+          <th>COURSE</th>
+          <th>COURSE NAME</th>
+          <th>COLLEGE/UNIVERSITY NAME</th>
+          <th>PASSING YEAR</th>
+          <th>PERCENTAGE/CGPA</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><input type="text" class="form-control" id="coursename1" required></td>
+              <td><input type="text" class="form-control" id="collegename1" required></td>
+              <td><input type="month" class="form-control" id="courseyear1" required></td>
+              <td><input type="text" class="form-control" id="courseper1" required></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><input type="text" class="form-control" id="coursename2" required></td>
+              <td><input type="text" class="form-control" id="collegename2" required></td>
+              <td><input type="month" class="form-control" id="courseyear2" required></td>
+              <td><input type="text" class="form-control" id="courseper2" required></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><input type="text" class="form-control" id="coursename3" required></td>
+              <td><input type="text" class="form-control" id="collegename3" required></td>
+              <td><input type="month" class="form-control" id="courseyear3" ></td>
+              <td><input type="text" class="form-control" id="courseper3" ></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><input type="text" class="form-control" id="coursename4"></td>
+              <td><input type="text" class="form-control" id="collegename4"></td>
+              <td><input type="month" class="form-control" id="courseyear4"></td>
+              <td><input type="text" class="form-control" id="courseper4"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+     <!-- <button type="button" id="adde" class="btn btn-primary btn-lg text-dark button1" onclick="addNewCourse()"><b>ADD NEW COURSE</b></button> -->
+      <button type="submit" id="submit"  class="btn btn-primary btn-lg  text-dark button1"><b>SAVE AND CONTINUE</b></button>
+        </div>
+      </div></form>
+    </div>
+    <script>
+      const form2=document.getElementById("education");
+      form2.addEventListener("submit",function(event){
+        event.preventDefault();
+
+        const coursename1=document.getElementById("coursename1").value;
+        const collegename1=document.getElementById("collegename1").value;
+        const courseyear1=document.getElementById("courseyear1").value;
+        const courseper1=document.getElementById("courseper1").value;
+
+        const coursename2=document.getElementById("coursename2").value;
+        const collegename2=document.getElementById("collegename2").value;
+        const courseyear2=document.getElementById("courseyear2").value;
+        const courseper2=document.getElementById("courseper2").value;
+      
+        const coursename3=document.getElementById("coursename3").value;
+        const collegename3=document.getElementById("collegename3").value;
+        const courseyear3=document.getElementById("courseyear3").value;
+        const courseper3=document.getElementById("courseper3").value;
+      
+        const coursename4=document.getElementById("coursename4").value;
+        const collegename4=document.getElementById("collegename4").value;
+        const courseyear4=document.getElementById("courseyear4").value;
+        const courseper4=document.getElementById("courseper4").value;
+      
+        //storing
+
+        sessionStorage.setItem("coursename1",coursename1);
+        sessionStorage.setItem("collegename1",collegename1);
+        sessionStorage.setItem("courseyear1",courseyear1);
+        sessionStorage.setItem("courseper1",courseper1);
+
+        sessionStorage.setItem("coursename2",coursename2);
+        sessionStorage.setItem("collegename2",collegename2);
+        sessionStorage.setItem("courseyear2",courseyear2);
+        sessionStorage.setItem("courseper2",courseper2);
+
+        sessionStorage.setItem("coursename3",coursename3);
+        sessionStorage.setItem("collegename3",collegename3);
+        sessionStorage.setItem("courseyear3",courseyear3);
+        sessionStorage.setItem("courseper3",courseper3);
+
+        sessionStorage.setItem("coursename4",coursename4);
+        sessionStorage.setItem("collegename4",collegename4);
+        sessionStorage.setItem("courseyear4",courseyear4);
+        sessionStorage.setItem("courseper4",courseper4);
+
+
+        window.location.href="skills.html";
+
+      });
+      // function addNewCourse() {
+      //       const tbody = document.querySelector(".table tbody");
+      //       const newRow = document.createElement("tr");
+      //       newRow.innerHTML = `
+      //           <td>${tbody.children.length + 1}</td>
+      //           <td><input type="text" class="form-control" id="coursename${tbody.children.length + 1}"></td>
+      //           <td><input type="text" class="form-control" id="collegename${tbody.children.length + 1}"></td>
+      //           <td><input type="month" class="form-control" id="courseyear${tbody.children.length + 1}"></td>
+      //           <td><input type="text" class="form-control" id="courseper${tbody.children.length + 1}"></td>
+      //       `;
+      //       tbody.appendChild(newRow);
+      //       sessionStorage.setItem(`coursename${courseId}`, `coursename${courseId}`);
+      //       sessionStorage.setItem(`collegename${courseId}`, `collegename${courseId}`);
+      //       sessionStorage.setItem(`courseyear${courseId}`, `courseyear${courseId}`);
+      //       sessionStorage.setItem(`courseper${courseId}`, `courseper${courseId}`);
+
+        
+      //   document.getElementById("adde").style.marginTop = `${20 + (tbody.children.length ) * 4}%`;
+      //   document.getElementById("submit").style.marginTop = `${20 + (tbody.children.length ) * 4}%`;
+      
+      // }
+        </script>
+</body>
+</html>
