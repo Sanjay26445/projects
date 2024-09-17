@@ -1,0 +1,64 @@
+body{
+    background-image: url('chess5.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header{
+    text-align: center;
+    background-color: rgba(31, 38, 135, .37);
+    padding-bottom: 20px;
+    padding-top: 4px;
+    
+}
+
+.titlec{
+    text-align: left;
+    color: white;
+}
+
+.rules{
+    color: white;
+}
+
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 700px;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    margin-top: 50px;
+    border-radius: 30px;
+  }
+
+
+  
+  .active, .collapsible:hover {
+    background-color: #555;
+  }
+  
+  .collapsible:after {
+    content: '\25BC';
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .active:after {
+    content: "\25B2";
+  }
+  
+  .content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+    max-width: 659px;
+    border: 30px;
+  }

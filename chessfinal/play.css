@@ -1,0 +1,41 @@
+body{
+    background-image: url('chess5.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header{
+    text-align: center;
+    background-color: rgba(31, 38, 135, .37);
+    padding-bottom: 20px;
+    padding-top: 4px;
+    
+}
+
+.titlec{
+    text-align: left;
+    color: white;
+}
+
+.history{
+    color: white;
+}
+
+h1{
+    color: white;
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+.container{
+    box-shadow: 0 8px 32px 0 rgba(4, 95, 231, 0.37);
+	border-radius: 30px;
+    width: 80%;
+    margin-left: 200px;
+    margin-top: 40px;
+}
+
+#his{
+    color: white;
+
+}

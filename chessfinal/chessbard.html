@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHESSMATE</title>
+    <style> 
+        .board.flipped {
+            transform:rotate(180deg);
+        }
+
+        .board.flipped .square {
+            transform: rotate(-180deg); 
+        }
+
+        body {
+            background-color: rgb(211, 236, 253);
+            font-family: 'Times New Roman', Times, serif;
+            
+        
+        }
+
+        #chess {
+            width: 66%;
+            height: 43%;
+            border-radius: 10px;
+            margin-left: 25.5%;
+            margin-top: 10px;
+        }
+
+        .square {
+            width: 115px;
+            height: 115px;
+            align-items: center;
+        }
+
+        .white-square {
+            background-color: aliceblue;
+        }
+
+        .black-square {
+            background-color: rgb(72, 118, 126);
+        }
+
+        #row8, #row7, #row6, #row5, #row4, #row3, #row2, #row1 {
+            display: flex;
+        }
+
+        .piece {
+            align-items: center;
+            font-size: 70px;
+            justify-content: center;
+            display: flex;
+            cursor: pointer;
+        }
+
+        .selected {
+            background-color: yellow;
+        }
+
+        .possiblemove {
+            background-color: #A2C469;
+        }
+        .sidebar {
+            background-color: rgb(6, 56, 65);
+            color: white;
+            width: 20%;
+            min-height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 10px;
+            font-size: 20px;
+        }
+
+        .s {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .s li {
+            margin-bottom: 40px;
+        }
+        .s li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 30px;
+            transition: background-color 0.3s;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .s li a:hover {
+            background-color: gray;
+            color:black;
+        }
+
+        .sidebar_right {
+            background-color: rgb(6, 56, 65);
+            color: white;
+            width: 20%;
+            min-height: 100vh;
+            position: fixed;
+            top: 0;
+            margin-left: 80%;
+            padding: 0;
+            font-size: 20px;
+        }
+
+        .stopwatch {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color:rgb(6, 56, 65);
+      color: white;
+      padding: 25px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .display {
+      font-size: 2vw;
+      margin-bottom: 3vw;
+    }
+    .controls {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 300px;
+    }
+    select {
+      margin-bottom: 20px;
+      width: 300px;
+      height: 50px;
+    }
+    button {
+      background-color:rgb(6, 56, 65);
+      color: white;
+      border: none;
+      padding: 1.5vw 5vw;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.5vw;
+    }
+    button:hover { background-color: gray;
+            color:black;
+        
+    }
+    #multiplayer{
+color: grey;
+    }
+    #multiplayer:hover{
+        color: black;
+    }
+   
+
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="sidebar">
+            <div class="s">
+                <h1 style="text-align: center;"><b>CHESS MATE</b></h1>
+                <li><a href="about.html">ABOUT US</a></li>
+                <li><a href="play.html">HOW TO PLAY</a></li>
+                <li><a href="#"  id="multiplayer">PLAY MULTIPLAYER</a></li>
+                <li><a href="rules.html">RULES OF CHESS</a></li>
+                <li><a href="history.html">HISTORY</a></li>
+                <li><a href="contact.html">CONTACT US</a></li>
+                <li><a href="signup.html">LOGOUT</a></li>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="board-container">
+                <div class="board">
+                    <div id="chess">
+                        <!-- eight row -->
+                        <div id="row8">
+                            <div class="8A black-rook square white-square pos-8A"><span class="piece brook blackp">&#9820;</span></div>
+                            <div class="8B black-knight square black-square pos-8B"><span class="piece bknight blackp">&#9822;</span></div>
+                            <div class="8C black-bishop square white-square pos-8C"><span class="piece bbishop blackp">&#9821;</span></div>
+                            <div class="8D black-queen square black-square pos-8D"><span class="piece bqueen blackp">&#9819;</span></div>
+                            <div class="8E black-king square white-square pos-8E"><span class="piece bking blackp">&#9818;</span></div>
+                            <div class="8F black-bishop square black-square pos-8F"><span class="piece bbishop blackp">&#9821;</span></div>
+                            <div class="8G black-knight square white-square pos-8G"><span class="piece bknight blackp">&#9822;</span></div>
+                            <div class="8H black-rook square black-square pos-8H"><span class="piece brook blackp">&#9820;</span></div>
+                        </div>
+                        <!-- seventh row -->
+                        <div id="row7">
+                            <div class="7A black-pawn square black-square pos-7A"><span class="piece bpawn blackp">&#9823;</span></div>
+                            <div class="7B black-pawn square white-square pos-7B"><span class="piece bpawn blackp">&#9823;</span></div>
+                            <div class="7C black-pawn square black-square pos-7C"><span class="piece bpawn blackp">&#9823;</span></div>
+                            <div class="7D black-pawn square white-square pos-7D"><span class="piece bpawn blackp">&#9823;</span></div>
+                            <div class="7E black-pawn square black-square pos-7E"><span class="piece bpawn blackp">&#9823;</span></div>
+                            <div class="7F black-pawn square white-square pos-7F"><span class="piece bpawn blackp">&#9823;</span></div>
+                            <div class="7G black-pawn square black-square pos-7G"><span class="piece bpawn blackp">&#9823;</span></div>
+                            <div class="7H black-pawn square white-square pos-7H"><span class="piece bpawn blackp">&#9823;</span></div>
+                        </div>
+                        <!-- sixth row -->
+                        <div id="row6">
+                            <div class="6A square white-square pos-6A"></div>
+                            <div class="6B square black-square pos-6B"></div>
+                            <div class="6C square white-square pos-6C"></div>
+                            <div class="6D square black-square pos-6D"></div>
+                            <div class="6E square white-square pos-6E"></div>
+                            <div class="6F square black-square pos-6F"></div>
+                            <div class="6G square white-square pos-6G"></div>
+                            <div class="6H square black-square pos-6H"></div>
+                        </div>
+                        <!-- fifth row -->
+                        <div id="row5">
+                            <div class="5A square black-square pos-5A"></div>
+                            <div class="5B square white-square pos-5B"></div>
+                            <div class="5C square black-square pos-5C"></div>
+                            <div class="5D square white-square pos-5D"></div>
+                            <div class="5E square black-square pos-5E"></div>
+                            <div class="5F square white-square pos-5F"></div>
+                            <div class="5G square black-square pos-5G"></div>
+                            <div class="5H square white-square pos-5H"></div>
+                        </div>
+                        <!-- fourth row -->
+                        <div id="row4">
+                            <div class="4A square white-square pos-4A"></div>
+                            <div class="4B square black-square pos-4B"></div>
+                            <div class="4C square white-square pos-4C"></div>
+                            <div class="4D square black-square pos-4D"></div>
+                            <div class="4E square white-square pos-4E"></div>
+                            <div class="4F square black-square pos-4F"></div>
+                            <div class="4G square white-square pos-4G"></div>
+                            <div class="4H square black-square pos-4H"></div>
+                        </div>
+                        <!-- third row -->
+                        <div id="row3">
+                            <div class="3A square black-square pos-3A"></div>
+                            <div class="3B square white-square pos-3B"></div>
+                            <div class="3C square black-square pos-3C"></div>
+                            <div class="3D square white-square pos-3D"></div>
+                            <div class="3E square black-square pos-3E"></div>
+                            <div class="3F square white-square pos-3F"></div>
+                            <div class="3G square black-square pos-3G"></div>
+                            <div class="3H square white-square pos-3H"></div>
+                        </div>
+                        <!-- second row -->
+                        <div id="row2">
+                            <div class="2A white-pawn square white-square pos-2A"><span class="piece wpawn whitep">&#9817;</span></div>
+                            <div class="2B white-pawn square black-square pos-2B"><span class="piece wpawn whitep">&#9817;</span></div>
+                            <div class="2C white-pawn square white-square pos-2C"><span class="piece wpawn whitep">&#9817;</span></div>
+                            <div class="2D white-pawn square black-square pos-2D"><span class="piece wpawn whitep">&#9817;</span></div>
+                            <div class="2E white-pawn square white-square pos-2E"><span class="piece wpawn whitep">&#9817;</span></div>
+                            <div class="2F white-pawn square black-square pos-2F"><span class="piece wpawn whitep">&#9817;</span></div>
+                            <div class="2G white-pawn square white-square pos-2G"><span class="piece wpawn whitep">&#9817;</span></div>
+                            <div class="2H white-pawn square black-square pos-2H"><span class="piece wpawn whitep">&#9817;</span></div>
+                        </div>
+                        <!-- first row -->
+                        <div id="row1">
+                            <div class="1A white-rook square black-square pos-1A"><span class="piece wrook whitep">&#9814;</span></div>
+                            <div class="1B white-knight square white-square pos-1B"><span class="piece wknight whitep">&#9816;</span></div>
+                            <div class="1C white-bishop square black-square pos-1C"><span class="piece wbishop whitep">&#9815;</span></div>
+                            <div class="1D white-queen square white-square pos-1D"><span class="piece wqueen whitep">&#9813;</span></div>
+                            <div class="1E white-king square black-square pos-1E"><span class="piece wking whitep">&#9812;</span></div>
+                            <div class="1F white-bishop square white-square pos-1F"><span class="piece wbishop whitep">&#9815;</span></div>
+                            <div class="1G white-knight square black-square pos-1G"><span class="piece wknight whitep">&#9816;</span></div>
+                            <div class="1H white-rook square white-square pos-1H"><span class="piece wrook whitep">&#9814;</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar_right">
+                <div class="s">
+                    <h1 style="text-align: center;"><b></b></h1>
+                    <li><a id="restart">RESTART</a></li>
+                    <li><a id="side">SWITCH SIDES</a></li><br><hr>    
+                    <h2 style="text-align: center;"><b>TIMER</b></h2>
+                </div>
+                <div class="stopwatch">
+                    <div class="display" id="time">00:00:00</div>
+                    <div class="controls">
+                      <select id="time-select">
+                        <option value="5">5 minutes</option>
+                        <option value="10">10 minutes</option>
+                        <option value="15">15 minutes</option>
+                        <option value="20">20 minutes</option>
+                        <option value="30">30 minutes</option>
+                        <option value="60">60 minutes</option>
+                      </select>
+                      <button id="start">Start</button>
+                      <button id="stop">Stop</button>
+                      <button id="reset">Reset</button>
+                    </div>
+                  </div><br><br><br>
+                
+            </div>
+        </div> 
+    </div> 
+    <script src="chess.js"></script>
+    <script src="timer.js"></script>
+    <script>
+        document.getElementById('side').addEventListener('click', function() {
+            var board = document.querySelector('.board');
+            board.classList.toggle('flipped');
+        });
+
+       
+
+        document.getElementById('restart').addEventListener('click', function() {
+    location.reload();
+});
+document.getElementById('multiplayer').addEventListener('click', function() {
+            alert("WILL BE AVAILABLE SOON!");
+});
+    </script>
+</body>
+</html>

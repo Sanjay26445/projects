@@ -1,0 +1,39 @@
+body{
+    background-image: url('chess5.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header{
+    text-align: center;
+    background-color: rgb(6, 56, 65);
+    padding-bottom: 0px;
+    padding-top: 4px;
+    
+}
+
+.titlec{
+    text-align: left;
+    color: white;
+}
+
+.about{
+    color: white;
+    font-size: 50px;
+    margin-top: -1px;
+}
+
+.container{
+    margin-top: 100px;
+}
+
+.home{
+    color: white;
+    font-size: 25px;
+     width: 80%;
+    height: 150%;
+    margin-left: 200px;
+    margin-top: 40px;
+    padding: 20px;
+    line-height: 2;
+}
